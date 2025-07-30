@@ -43,7 +43,7 @@ export default function Works() {
             start: isMobile ? "top 10%" : "top 3%",
             end: () => `+=${scrollDistance}`,
             scrub: 1,
-            
+            pin: true,
             anticipatePin: 1,
             invalidateOnRefresh: true,
           },

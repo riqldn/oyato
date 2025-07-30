@@ -50,28 +50,27 @@ export default function Home() {
         const heroTl = gsap.timeline({
           scrollTrigger: {
             trigger: spacerEl,
-            start: "top bottom",
-            end: "top top",
-            scrub: true,
+            start: "top center",
+            once: true,
           },
         });
-
+        heroTl.to(".nav_links", {opacity:1})
         heroTl.to(logoEl, {
           y: 0,
           scale: 1,
           ease: "power4.inOut",
+          duration:1,
         });
 
-        gsap.fromTo(
+        heroTl.fromTo(
           videoEl,
           { opacity: 0 },
           {
-            opacity: 1,
+            opacity: 1, duration:1,
             scrollTrigger: {
               trigger: spacerEl,
               start: "top center",
-              end: "top top",
-              scrub: true,
+              once: true,
             },
           }
         );
@@ -237,7 +236,7 @@ export default function Home() {
         </div>
       </nav>
       <div className="min-h-screen w-full">
-        <section className="sticky top-0  hero_section min-h-screen w-full">
+        <section ref={heroSpacer} className="relative  hero_section min-h-screen w-full">
           <div className=" w-11/12 mx-auto pb-4 min-h-screen flex items-end justify-items-center min-h-screen">
             <h1 className="flex flex-col leading-tight text-[1.8rem] md:text-2xl">
               <span className="inline-block overflow-hidden">
@@ -259,9 +258,9 @@ export default function Home() {
           </div>
 
         </section>
-        <div ref={heroSpacer} className="min-h-screen w-full">
+        {/* <div ref={heroSpacer} className="min-h-screen w-full">
 
-        </div>
+        </div> */}
       </div>
 
       <section ref={about} className="about_section min-h-[50vh] md:min-h-[50vh] lg:min-h-screen w-full">
