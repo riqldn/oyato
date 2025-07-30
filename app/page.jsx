@@ -225,7 +225,7 @@ export default function Home() {
               alt="Logo"
             />
           </div>
-          <motion.span initial="initial" whileHover="hovered" className="font-canela nav_links cta pointer-events-auto relative w-max px-4 py-2  text-[#C0892B] rounded-2xl overflow-hidden group border-2 border-transparent">
+          <motion.span initial="initial" whileHover="hovered" className="hidden md:inline-block font-canela nav_links cta pointer-events-auto relative w-max px-4 py-2  text-[#C0892B] rounded-2xl overflow-hidden group border-2 border-transparent">
             <Link className=" relative inline-block" href=" ">
 
               <motion.span variants={{ initial: { y: 0 }, hovered: { y: 30 }, transition: { ease: 'easeInOut', duration: 1.5 } }} className='inline-block'>GET IN TOUCH</motion.span>

@@ -40,7 +40,7 @@ export default function Works() {
           ease: "none",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: isMobile ? "top 25%" : "top 3%",
+            start: isMobile ? "top 10%" : "top 3%",
             end: () => `+=${totalWidth}`,
             scrub: 1,
             pin: true,
