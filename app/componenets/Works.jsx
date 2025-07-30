@@ -29,7 +29,7 @@ export default function Works() {
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
       const animate = () => {
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill()); // ✅ Kill all triggers before setting new ones
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
         const totalWidth = horizontalRef.current.scrollWidth;
         const scrollDistance = totalWidth - window.innerWidth;
@@ -41,9 +41,9 @@ export default function Works() {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: isMobile ? "top 10%" : "top 3%",
-            end: () => `+=${totalWidth}`,
+            end: () => `+=${scrollDistance}`,
             scrub: 1,
-            pin: true,
+            
             anticipatePin: 1,
             invalidateOnRefresh: true,
           },
@@ -65,28 +65,26 @@ export default function Works() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full min-h-screen md:min-h-[50vh] lg:min-h-screen overflow-hidden bg-[#0f0f0f]">
+    <section
+      ref={sectionRef}
+      className="relative w-full min-h-screen md:min-h-[50vh] lg:min-h-screen overflow-hidden bg-[#0f0f0f]"
+    >
       {/* Sticky Header */}
-      <div className="sticky top-0 z-10 py-8 px-4">
-        <h2 className="text-white text-2xl leading-tighther font-semibold">Selected Works</h2>
+      <div className="sticky top-0 z-10 py-8 px-4 bg-[#0f0f0f]">
+        <h2 className="text-white text-2xl leading-tighter font-semibold">Selected Works</h2>
       </div>
 
       {/* Scrollable Row */}
       <div className="overflow-hidden">
-        <div
-          ref={horizontalRef}
-          className="flex gap-12 px-4"
-         
-        >
+        <div ref={horizontalRef} className="flex gap-12 px-4">
           {works.map((item, i) => (
-            <div
-              key={i}
-              className="min-w-[25vw] flex-shrink-0 flex  flex-col items-start"
-            >
+            <div key={i} className="min-w-[25vw] flex-shrink-0 flex flex-col items-start">
               <Image src={item.image} alt={item.title} className="self-start w-[90%] h-auto" />
               <div className="flex flex-col">
                 <span className="text-xs text-secondary tracking-tight">{item.subtitle}</span>
-                <span className="text-smd md:text-lg text-primary font-canela md:-mt-2">{item.title}</span>
+                <span className="text-smd md:text-lg text-primary font-canela md:-mt-2">
+                  {item.title}
+                </span>
               </div>
             </div>
           ))}
