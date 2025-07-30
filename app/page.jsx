@@ -349,7 +349,7 @@ export default function Home() {
           <h2 className="max-w-[17ch] text-secondary text-center leading-tight text-lg md:text-xl lg:text-4xl">
             {SplitAndUnderline("Lets Creates Something Beautiful Together", "none", "contact")}
           </h2>
-          <div className="flex justify-between gap-48 w-[40vw] flex-row">
+          <div className="flex justify-between gap-48 w-11/12 md:w-[40vw] flex-row">
             <div className="col_1 text-primary underline">
               <Link href="/"><span>EMAIL</span></Link>
             </div>
@@ -362,7 +362,7 @@ export default function Home() {
       </section>
       <footer className="min-h-max w-full">
         <div className="py-2 min-h-max mx-auto flex flex-row text-xs text-secondary justify-between w-11/12">
-          <span>E  OYATOYEMI@GMAIL.COM</span>
+          <span className="hidden md:inline-block">E  OYATOYEMI@GMAIL.COM</span>
           <span>© 2025 OYATO. All rights reserved. All projects depicted on this website, unless otherwise stated, are intellectual property of OYATO</span>
         </div>
       </footer>
