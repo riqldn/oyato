@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-canela: var(--font-canela);
+  --font-inter: var(--font-inter);
+  --color-primary: #C0892B;
+  --color-secondary: #D5C3A1;
+  --color-dark: #0f0f0f;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-smd:1.25rem;
+  --text-md: 1.5rem;
+  --text-lg: 2rem;
+  --text-xl: 2.5rem;
+  --text-2xl: 3.5rem;
+  --text-3xl: 4rem;
+  --text-4xl: 4.5rem;
+  --leading-reg: 120%;
+  --leading-tight: 110%;
+  --leading-tighter: 100%;
+  --tracking-xtra: -0.04em;
+  --tracking-tight: -0.02em;
+}
+*{
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-dark overflow-x-hidden
+
+}
+h1,h2,h3,h4,h5{
+  @apply font-canela text-secondary tracking-xtra;
+}
+.nav_links{
+  @apply opacity-0 text-secondary font-canela tracking-tight text-base;
+}
+.nav_links.cta{
+  @apply text-primary!;
+}
+
+.glowing-border {
+  border: 1.5px solid transparent;
+  background: linear-gradient(270deg, #F5A623, #C0892B, #8F684E);
+  background-size: 600% 600%;
+  z-index: 0;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  border-radius: 2rem;
+
+  /* For border-only glow effect */
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 1.5px;
+}
+
+.group:hover .glowing-border {
+  animation: glowBorder 2.5s linear infinite;
+  opacity: 1;
+  
+}
+.outer {
+  mask: linear-gradient(90deg, transparent 5%, white, transparent 95%) !important;
+  -webkit-mask: linear-gradient(90deg, transparent 5%, white, transparent 95%) !important;
+}
+
+@keyframes glowBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+
