@@ -10,7 +10,7 @@ import Boots from "../assets/boots.png";
 import Apple from "../assets/apple.png";
 import Nike from "../assets/nike.png";
 import Vogue from "../assets/vogue.png";
-import Harrods from "../assets/Harrods.png";
+import Harrods from "../assets/harrods.png";
 import JD from "../assets/jd.png";
 
 gsap.registerPlugin(ScrollTrigger);
