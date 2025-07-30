@@ -92,9 +92,9 @@ export default function Clients() {
     return (
         <section
             ref={sectionRef}
-            className="relative clients_section w-full min-h-screen md:min-h-[50vh] lg:min-h-screen overflow-hidden"
+            className="relative clients_section w-full min-h-[50vh] lg:min-h-screen overflow-hidden"
         >
-            <div className="min-h-screen md:min-h-[50vh] lg:min-h-screen flex flex-col gap-16 mx-auto w-11/12 overflow-hidden">
+            <div className="min-h-[50vh] lg:min-h-screen flex flex-col gap-16 mx-auto w-11/12 overflow-hidden">
                 <h2 className="text-2xl font-canela relative max-w-[10ch] tracking-tight pt-32 uppercase leading-tighter">
                     <HeaderText text="PREVIOUS CLIENTS" identifier="clients" />
                 </h2>

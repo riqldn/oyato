@@ -193,8 +193,8 @@ export default function Home() {
         </div>
       </nav>
       <div className="min-h-screen w-full">
-        <section ref={heroSpacer} className="relative  hero_section min-h-screen w-full">
-          <div className=" w-11/12 mx-auto pb-4 min-h-screen flex items-end justify-items-center min-h-screen">
+        <section ref={heroSpacer} className="relative  hero_section min-h-svh md:min-h-screen w-full">
+          <div className=" w-11/12 mx-auto pb-4 min-h-svh md:min-h-screen flex items-end justify-items-center min-h-screen">
             <h1 className="flex flex-col leading-tight text-[1.8rem] md:text-2xl">
               <span className="inline-block overflow-hidden">
                 {"DESIGN WITH FEELING,".split("").map((char, i) => (
@@ -294,8 +294,8 @@ export default function Home() {
         <Image alt="" fill className="-z-10 absolute top-0 left-0" src={Bg} quality={75} sizes="100vw" />
       </section>
       <Clients />
-      <section ref={contact} className="contact_section w-full min-h-screen md:min-h-[50vh] lg:min-h-screen">
-        <div className="w-11/12 min-h-screen md:min-h-[50vh] lg:min-h-screen mx-auto flex-col flex gap-16 justify-center items-center">
+      <section ref={contact} className="contact_section w-full min-h-[50vh] lg:min-h-screen">
+        <div className="w-11/12 min-h-[50vh] lg:min-h-screen mx-auto flex-col flex gap-16 justify-center items-center">
           <h2 className="max-w-[17ch] text-secondary text-center leading-tight text-lg md:text-xl lg:text-4xl">
             {SplitAndUnderline("Lets Creates Something Beautiful Together", "none", "contact")}
           </h2>

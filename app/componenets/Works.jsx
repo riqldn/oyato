@@ -31,24 +31,23 @@ export default function Works() {
             const animate = () => {
                 ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
-                const totalWidth = horizontalRef.current.scrollWidth;
-                const scrollDistance = totalWidth - window.innerWidth;
-                const isMobile = window.innerWidth <= 768;
+                if (window.innerWidth > 768) {
+                    const scrollLength = horizontalRef.current.scrollWidth - window.innerWidth;
 
-                gsap.to(horizontalRef.current, {
-                    x: -scrollDistance,
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: sectionRef.current,
-                        start: isMobile ? "top 10%" : "top 3%",
-                        end: () => `+=${totalWidth}`,
-                        scrub: 1,
-                       
-                        anticipatePin: 1,
-                        invalidateOnRefresh: true,
-                    }
-                    ,
-                });
+                    gsap.to(horizontalRef.current, {
+                        x: -scrollLength,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: sectionRef.current,
+                            start: "top 10%",
+                            end: () => `+=${scrollLength}`,
+                            scrub: true,
+                            pin: true, // ✅ only on desktop
+                            invalidateOnRefresh: true,
+                        },
+                    });
+                }
+
             };
 
             animate();
@@ -68,22 +67,22 @@ export default function Works() {
     return (
         <section
             ref={sectionRef}
-            className="relative w-full min-h-screen md:min-h-[50vh] lg:min-h-screen overflow-hidden bg-[#0f0f0f]"
+            className="relative w-full min-h-screen md:min-h-[50vh] pb-4 lg:min-h-screen overflow-hidden bg-[#0f0f0f]"
         >
             {/* Sticky Header */}
             <div className="sticky top-0 z-10 py-8 px-4 bg-[#0f0f0f]">
-                <h2 className="text-white text-2xl leading-tighter font-semibold">Selected Works</h2>
+                <h2 className="text-white text-xl md:text-2xl leading-tighter font-semibold">Selected Works</h2>
             </div>
 
             {/* Scrollable Row */}
             <div className="overflow-hidden">
-                <div ref={horizontalRef} className="flex gap-12 px-4">
+                <div ref={horizontalRef} className="gap-12 px-4 flex flex-col md:flex-row works_wrapper">
                     {works.map((item, i) => (
                         <div key={i} className="min-w-[25vw] flex-shrink-0 flex flex-col items-start">
                             <Image src={item.image} alt={item.title} className="self-start w-[90%] h-auto" />
-                            <div className="flex flex-col">
+                            <div className="flex mt-1 flex-col">
                                 <span className="text-xs text-secondary tracking-tight">{item.subtitle}</span>
-                                <span className="text-smd md:text-lg text-primary font-canela md:-mt-2">
+                                <span className="text-smd md:text-lg text-primary font-canela -mt-2">
                                     {item.title}
                                 </span>
                             </div>
