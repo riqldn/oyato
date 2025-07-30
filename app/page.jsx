@@ -223,12 +223,12 @@ export default function Home() {
       <section ref={about} className="about_section min-h-[50vh] md:min-h-[50vh] lg:min-h-screen w-full">
         <div className="min-h-[50vh] md:min-h-[50vh] lg:min-h-screen w-11/12 mx-auto flex flex-col md:grid grid-cols-12 md:mt-16 lg:items-center gap-8 mt-12  md:justify-center">
           <div className="col-start-1 col-end-13 w-full md:grid grid-cols-12">
-            <span className="text-primary col-start-1 col-end-3">(ABOUT US)</span>
+            <span className="text-primary col-start-1 col-end-3 mb-4">(ABOUT US)</span>
             <h2 className="max-w-[30ch] md:col-start-3 lg:col-start-6 col-end-13 text-left leading-tight text-lg md:text-xl lg:text-2xl">
               {SplitAndUnderline("WE ARE OYATO A CREATIVE STORYTELLING AND MARKETING AGENCY", "OYATO", "about")}
             </h2>
           </div>
-          <div className="col-start-1 row-start-2 gap-4 flex flex-col md:col-end-8 lg:col-end-5">
+          <div className="col-start-1 row-start-2 gap-8 flex flex-col md:col-end-8 lg:col-end-5">
             <p className="text-secondary text-base text-inter">
               Oyato is a creative storytelling and marketing agency that exists to make brands feel unforgettable. We believe people connect with feeling, not just features, so we craft experiences that move audiences through narrative, design, and strategy.
             </p>
@@ -312,7 +312,7 @@ export default function Home() {
       </section>
       <footer className="min-h-max w-full">
         <div className="py-2 min-h-max mx-auto flex flex-row text-xs text-secondary justify-between w-11/12">
-          <span className="hidden md:inline-block">E  OYATOYEMI@GMAIL.COM</span>
+          <span className="hidden lg:inline-block">E  OYATOYEMI@GMAIL.COM</span>
           <span>© 2025 OYATO. All rights reserved. All projects depicted on this website, unless otherwise stated, are intellectual property of OYATO</span>
         </div>
       </footer>

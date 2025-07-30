@@ -70,19 +70,19 @@ export default function Works() {
             className="relative w-full min-h-screen md:min-h-[50vh] pb-4 lg:min-h-screen overflow-hidden bg-[#0f0f0f]"
         >
             {/* Sticky Header */}
-            <div className="sticky top-0 z-10 py-8 px-4 bg-[#0f0f0f]">
+            <div className="sticky mx-auto top-0 z-10 py-8 px-4 bg-[#0f0f0f]">
                 <h2 className="text-white text-xl md:text-2xl leading-tighter font-semibold">Selected Works</h2>
             </div>
 
             {/* Scrollable Row */}
             <div className="overflow-hidden">
-                <div ref={horizontalRef} className="gap-12 px-4 flex flex-col md:flex-row works_wrapper">
+                <div ref={horizontalRef} className="mx-auto gap-12 px-4 flex items-center flex-col  md:flex-row works_wrapper">
                     {works.map((item, i) => (
-                        <div key={i} className="min-w-[25vw] flex-shrink-0 flex flex-col items-start">
-                            <Image src={item.image} alt={item.title} className="self-start w-[90%] h-auto" />
+                        <div key={i} className="min-w-full md:min-w-[25vw] flex-shrink-0 flex flex-col items-start">
+                            <Image src={item.image} alt={item.title} className="self-start w-full md:w-[90%] h-auto" />
                             <div className="flex mt-1 flex-col">
                                 <span className="text-xs text-secondary tracking-tight">{item.subtitle}</span>
-                                <span className="text-smd md:text-lg text-primary font-canela -mt-2">
+                                <span className="text-smd md:text-lg text-primary font-canela -mt-1">
                                     {item.title}
                                 </span>
                             </div>
