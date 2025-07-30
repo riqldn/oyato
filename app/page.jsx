@@ -30,10 +30,9 @@ export default function Home() {
     const serviceEl = services.current;
     const contactEl = contact.current;
 
-    const triggers = [];
-
-    // Initial states
     const isMobile = window.innerWidth <= 768;
+
+    // Initial setup
     gsap.set(logoEl, {
       scale: isMobile ? 3 : 8,
       y: isMobile ? "45vh" : "50vh",
@@ -44,138 +43,95 @@ export default function Home() {
     gsap.set(".char.about, .services.char", { y: 100 });
     gsap.set(".service", { opacity: 0, visibility: "visible" });
 
-    ScrollTrigger.matchMedia({
-      // === Desktop ===
-      "(min-width: 769px)": function () {
-        const heroTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: spacerEl,
-            start: "top center",
-            once: true,
-          },
-        });
-        heroTl.to(".nav_links", {opacity:1})
-        heroTl.to(logoEl, {
-          y: 0,
-          scale: 1,
-          ease: "power4.inOut",
-          duration:1,
-        });
-
-        heroTl.fromTo(
-          videoEl,
-          { opacity: 0 },
-          {
-            opacity: 1, duration:1,
-            scrollTrigger: {
-              trigger: spacerEl,
-              start: "top center",
-              once: true,
-            },
-          }
-        );
-      },
-
-      // === Mobile ===
-      "(max-width: 768px)": function () {
-        gsap.fromTo(
-          logoEl,
-          {
-            scale: 3,
-            y: "45vh",
-          },
-          {
-            scale: 1,
-            y: 0,
-            duration: 1.5,
-            ease: "power4.out",
-            scrollTrigger: {
-              trigger: spacerEl,
-              start: "top 90%",
-              end: "top 30%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-
-        gsap.fromTo(
-          videoEl,
-          { opacity: 0 },
-          {
-            opacity: 1,
-            scrollTrigger: {
-              trigger: spacerEl,
-              start: "top center",
-              end: "top top",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-      },
-
-      // === Shared Across All Devices ===
-      "all": function () {
-        // Your about/contact/services animations stay the same here...
-
-        gsap.to(".word.about", {
-          scrollTrigger: {
-            trigger: aboutEl,
-            start: "top 75%",
-            end: "top top",
-            once: true,
-          },
-          opacity: 1,
-          stagger: { amount: 0.5, from: "random" },
-          duration: 1.5,
-          ease: "power2.inOut",
-        });
-
-        gsap.to(".word.contact", {
-          scrollTrigger: {
-            trigger: contactEl,
-            start: "top 75%",
-            end: "top top",
-            once: true,
-          },
-          opacity: 1,
-          stagger: { amount: 0.5, from: "random" },
-          duration: 1.5,
-          ease: "power2.inOut",
-        });
-
-        // Services text animation...
-        gsap.to(".services.char", {
-          scrollTrigger: {
-            trigger: serviceEl,
-            start: "top 99%",
-            end: "bottom top",
-            once: true,
-          },
-          y: 0,
-          duration: 1.5,
-          stagger: { amount: 0.5 },
-          ease: "power2.inOut",
-        });
-
-        gsap.to(".service", {
-          scrollTrigger: {
-            trigger: serviceEl,
-            start: "top 25%",
-            end: "bottom top",
-            once: true,
-          },
-          opacity: 1,
-          duration: 1,
-          stagger: { amount: 0.5 },
-          ease: "power4.inOut",
-        });
+    // Shared animations for all viewports
+    const heroTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: spacerEl,
+        start: "top center",
+        once: true,
       },
     });
 
-    // Handle resize
-    const handleResize = () => {
-      ScrollTrigger.refresh();
-    };
+    heroTl.to(".nav_links", { opacity: 1 });
+
+    heroTl.to(logoEl, {
+      y: 0,
+      scale: 1,
+      ease: "power4.inOut",
+      duration: 1,
+    });
+
+    heroTl.fromTo(
+      videoEl,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 1,
+      }
+    );
+    
+    heroTl.to(".hero.char", {
+      y: 0,
+      duration: 1.5,
+      stagger: { amount: 0.5 },
+      ease: "power2.inOut",
+    },"<");
+
+
+
+    gsap.to(".word.about", {
+      scrollTrigger: {
+        trigger: aboutEl,
+        start: "top 75%",
+        end: "top top",
+        once: true,
+      },
+      opacity: 1,
+      stagger: { amount: 0.5, from: "random" },
+      duration: 1.5,
+      ease: "power2.inOut",
+    });
+
+    gsap.to(".word.contact", {
+      scrollTrigger: {
+        trigger: contactEl,
+        start: "top 75%",
+        end: "top top",
+        once: true,
+      },
+      opacity: 1,
+      stagger: { amount: 0.5, from: "random" },
+      duration: 1.5,
+      ease: "power2.inOut",
+    });
+
+    gsap.to(".services.char", {
+      scrollTrigger: {
+        trigger: serviceEl,
+        start: "top 99%",
+        end: "bottom top",
+        once: true,
+      },
+      y: 0,
+      duration: 1.5,
+      stagger: { amount: 0.5 },
+      ease: "power2.inOut",
+    });
+
+    gsap.to(".service", {
+      scrollTrigger: {
+        trigger: serviceEl,
+        start: "top 25%",
+        end: "bottom top",
+        once: true,
+      },
+      opacity: 1,
+      duration: 1,
+      stagger: { amount: 0.5 },
+      ease: "power4.inOut",
+    });
+
+    const handleResize = () => ScrollTrigger.refresh();
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -183,6 +139,7 @@ export default function Home() {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
+
 
 
 
