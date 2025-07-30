@@ -85,6 +85,7 @@ export default function Home() {
         start: "top 75%",
         end: "top top",
         once: true,
+        markers: true,
       },
       opacity: 1,
       stagger: { amount: 0.5, from: "random" },

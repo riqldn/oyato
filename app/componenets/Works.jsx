@@ -28,26 +28,28 @@ export default function Works() {
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
+            let st;
+
             const animate = () => {
-                ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+                // Kill only this component's trigger
+                if (st) st.kill();
 
                 if (window.innerWidth > 768) {
                     const scrollLength = horizontalRef.current.scrollWidth - window.innerWidth;
 
-                    gsap.to(horizontalRef.current, {
-                        x: -scrollLength,
-                        ease: "none",
-                        scrollTrigger: {
-                            trigger: sectionRef.current,
-                            start: "top 10%",
-                            end: () => `+=${scrollLength}`,
-                            scrub: true,
-                            pin: true, // ✅ only on desktop
-                            invalidateOnRefresh: true,
-                        },
+                    st = ScrollTrigger.create({
+                        trigger: sectionRef.current,
+                        start: "top 10%",
+                        end: `+=${scrollLength}`,
+                        scrub: true,
+                        pin: true,
+                        invalidateOnRefresh: true,
+                        animation: gsap.to(horizontalRef.current, {
+                            x: -scrollLength,
+                            ease: "none",
+                        }),
                     });
                 }
-
             };
 
             animate();
@@ -57,12 +59,13 @@ export default function Works() {
 
             return () => {
                 window.removeEventListener("resize", animate);
-                ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+                if (st) st.kill(); // Only kill this one
             };
         }, sectionRef);
 
         return () => ctx.revert();
     }, []);
+
 
     return (
         <section
