@@ -95,8 +95,8 @@ export default function Clients() {
             className="relative clients_section w-full min-h-[50vh] lg:min-h-screen overflow-hidden"
         >
             <div className="min-h-[50vh] lg:min-h-screen flex flex-col gap-16 mx-auto w-11/12 overflow-hidden">
-                <h2 className="text-2xl font-canela relative max-w-[10ch] tracking-tight pt-32 uppercase leading-tighter">
-                    <HeaderText text="PREVIOUS CLIENTS" identifier="clients" />
+                <h2 className="text-xl md:text-4xl font-canela relative max-w-[10ch] tracking-tight pt-32 leading-tighter">
+                    <HeaderText text="Previous Clients" identifier="clients" />
                 </h2>
 
                 <div className="outer flex flex-col gap-4 client_container">

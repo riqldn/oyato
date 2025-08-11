@@ -71,7 +71,7 @@ export default function Home() {
     );
     
     heroTl.to(".hero.char", {
-      y: 0,
+      y: isMobile ? -2 : -10,
       duration: 1.5,
       stagger: { amount: 0.5 },
       ease: "power2.inOut",
@@ -197,14 +197,14 @@ export default function Home() {
           <div className=" w-11/12 mx-auto pb-4 min-h-svh md:min-h-screen flex items-end justify-items-center min-h-screen">
             <h1 className="flex flex-col leading-tight text-[1.8rem] md:text-2xl">
               <span className="inline-block overflow-hidden">
-                {"DESIGN WITH FEELING,".split("").map((char, i) => (
+                {"Design With Feeling,".split("").map((char, i) => (
                   <motion.span initial={{ y: 100 }} key={i} className="char hero inline-block">
                     {char === " " ? "\u00A0" : char}
                   </motion.span>
                 ))}
               </span>
               <span className="inline-block overflow-hidden">
-                {"STRATEGY WITH TASTE".split("").map((char, i) => (
+                {"Strategy With Taste".split("").map((char, i) => (
                   <motion.span initial={{ y: 100 }} key={i + 100} className="char hero inline-block">
                     {char === " " ? "\u00A0" : char}
                   </motion.span>
@@ -222,10 +222,10 @@ export default function Home() {
 
       <section ref={about} className="about_section min-h-[50vh] md:min-h-[50vh] lg:min-h-screen w-full">
         <div className="min-h-[50vh] md:min-h-[50vh] lg:min-h-screen w-11/12 mx-auto flex flex-col md:grid grid-cols-12 md:mt-16 lg:items-center gap-8 mt-12  md:justify-center">
-          <div className="col-start-1 col-end-13 w-full md:grid grid-cols-12">
-            <span className="text-primary col-start-1 col-end-3 mb-4">(ABOUT US)</span>
-            <h2 className="max-w-[30ch] md:col-start-3 lg:col-start-6 col-end-13 text-left leading-tight text-lg md:text-xl lg:text-2xl">
-              {SplitAndUnderline("WE ARE OYATO A CREATIVE STORYTELLING AND MARKETING AGENCY", "OYATO", "about")}
+          <div className="col-start-1 col-end-13 flex flex-col w-full md:grid grid-cols-12">
+            <span className="text-primary text-xs md:text-base col-start-1 col-end-3 mb-4">(ABOUT US)</span>
+            <h2 className="max-w-[30ch] md:col-start-3 lg:col-start-6 col-end-13 text-left leading-tight text-lg md:text-xl lg:text-4xl">
+              {SplitAndUnderline("We are Oyato a creative storytelling and marketing agency", "Oyato", "about")}
             </h2>
           </div>
           <div className="col-start-1 row-start-2 gap-8 flex flex-col md:col-end-8 lg:col-end-5">
@@ -250,9 +250,9 @@ export default function Home() {
 
       <Works />
       <section ref={services} className="relative service_section min-h-screen w-full">
-        <div className="text-secondary pt-40 flex gap-32 flex-col w-11/12 min-h-screen mx-auto">
+        <div className="text-secondary pt-40 pb-8 md:pb-0 flex gap-32 flex-col w-11/12 min-h-screen mx-auto">
           <div className="flex flex-col gap-12 justify-center items-center ">
-            <h2 className="text-xl md:text-4xl ">{SplitText("OUR SERVICES", "services")}</h2>
+            <h2 className="text-xl md:text-4xl ">{SplitText("Our Services", "services")}</h2>
             <p className="max-w-[60ch] text-center">At OYATO, we believe in telling your brand&apos;s story with, honesty, accuracy and impact. These are our services that allow us to do so.</p>
           </div>
           <div className="lg:grid gap-12 md:gap-16 lg:gap-y-24 flex flex-col lg:grid-cols-2">
